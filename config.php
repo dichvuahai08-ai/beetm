@@ -1,19 +1,16 @@
 <?php
 // Thông tin Bot Telegram
-$botToken = "123456789:ABCdefGHIjklMNOpqrSTUvwxYZ";
+$botToken = "7969927874:AAErxyYwZLOQCxudE6JLqGD6pAMKZf9CM0E";
 
-// Thông tin DB MySQL/MariaDB
-$host = "sql313.ezyro.com";  // host mới
-$port = "3306";               // cổng MySQL
-$dbname = "ezyro_39696007_beetm";          // tên DB
-$user = "ezyro_39696007";             // user DB
-$password = "980c532";     // mật khẩu DB
+// Thông tin DB PostgreSQL
+$host = "dpg-d2e5s28gjchc73e2kb40-a.oregon-postgres.render.com";
+$port = "5432";
+$dbname = "beetm";
+$user = "beetm_user";
+$password = "e0H83VDofaXiw1XQadZiE7WOirMPYFke";
 
-// Kết nối MySQL
-$conn = new mysqli($host, $user, $password, $dbname, $port);
-
-// Kiểm tra lỗi kết nối
-if ($conn->connect_error) {
-    die("Kết nối DB thất bại: " . $conn->connect_error);
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
+if (!$conn) {
+    die("Kết nối DB thất bại: " . pg_last_error());
 }
 ?>
